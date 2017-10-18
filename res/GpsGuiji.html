@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap{width:100%;height:100%;}
+		p{margin-left:5px; font-size:14px;}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1712ccd584b110617ce3a09db6bf6e95"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/library/AreaRestriction/1.2/src/AreaRestriction_min.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js"></script>
+	<title>Gps轨迹图(互联网+)</title>
+</head>
+<body>
+	<div id="allmap"></div>
+	<p>本区域地图由百度提供支持</p>
+</body>
+</html>
+<script type="text/javascript">
+	var map = new BMap.Map("allmap");
+	map.centerAndZoom(new BMap.Point(gps-guiji-center-e, gps-guiji-center-n), 14.5);
+	map.enableScrollWheelZoom();
+	<!--gps-guiji-start--->
+    <!--gps-guiji-end--->
+	function showInfo(e){
+		alert(e.point.lng + ", " + e.point.lat);
+	}
+	map.addEventListener("click", showInfo);
+
+</script>
